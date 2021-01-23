@@ -1,6 +1,7 @@
 package com.joaquim.estudosjpa.orm;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Table(name="cargos")
@@ -11,6 +12,10 @@ public class Cargo {
     private int id;
 
     private String descricao;
+
+    @OneToMany (mappedBy = "cargo")
+    private List<Funcionario> funcionarios;
+
 
     public int getId() {
         return id;
